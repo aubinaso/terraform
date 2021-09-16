@@ -3,7 +3,8 @@ resource "null_resource" "node_docker" {
     type = "ssh"
     user = var.ssh_user
     host = var.ssh_host
-    private_key = file(var.ssh_key)
+    password = var.ssh_password
+#    private_key = file(var.ssh_key)
   }
 
   provisioner "remote-exec" {

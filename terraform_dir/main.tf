@@ -1,6 +1,7 @@
 variable ssh_host {}
 variable ssh_user {}
 variable ssh_key {}
+variable ssh_password {}
 variable extern_port {}
 variable intern_port {}
 variable "hosts" {
@@ -15,19 +16,21 @@ variable "hosts" {
 }
 
 
-module "docker_install" {
+module "module_install" {
   source = "./modules/module_install"
   ssh_host = var.ssh_host
   ssh_user = var.ssh_user
   ssh_key = var.ssh_key
+  ssh_password = var.ssh_password
 }
 
 
-module "docker_run" {
+module "module_run" {
   source = "./modules/module_run"
   ssh_host = var.ssh_host
   ssh_user = var.ssh_user
   ssh_key = var.ssh_key
+  ssh_password = var.ssh_password
   extern_port = var.extern_port
   intern_port = var.intern_port
 }
